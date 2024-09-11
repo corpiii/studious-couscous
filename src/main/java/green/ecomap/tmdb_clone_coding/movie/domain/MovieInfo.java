@@ -1,5 +1,6 @@
 package green.ecomap.tmdb_clone_coding.movie.domain;
 
+import green.ecomap.tmdb_clone_coding.country.domain.Country;
 import green.ecomap.tmdb_clone_coding.genre.domain.Genre;
 import green.ecomap.tmdb_clone_coding.language.domain.Language;
 import green.ecomap.tmdb_clone_coding.movie_collection.domain.MovieCollection;
@@ -74,9 +75,25 @@ public class MovieInfo {
 
     @ManyToMany
     @JoinTable(
-            name = "movie_language",
-            joinColumns = @JoinColumn(name = "movie_id"),
-            inverseJoinColumns = @JoinColumn(name = "language_id")
+        name = "movie_language",
+        joinColumns = @JoinColumn(name = "movie_id"),
+        inverseJoinColumns = @JoinColumn(name = "language_id")
     )
     private List<Language> spokenLanguages = new ArrayList<>();
+
+    @ManyToMany
+    @JoinTable(
+        name = "origin_country",
+        joinColumns = @JoinColumn(name = "movie_id"),
+        inverseJoinColumns = @JoinColumn(name = "country_id")
+    )
+    private List<Country> originCountry = new ArrayList<>();
+
+    @ManyToMany
+    @JoinTable(
+        name = "production_country",
+        joinColumns = @JoinColumn(name = "movie_id"),
+        inverseJoinColumns = @JoinColumn(name = "country_id")
+    )
+    private List<Country> productionCompanies = new ArrayList<>();
 }

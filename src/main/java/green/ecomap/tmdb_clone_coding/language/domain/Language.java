@@ -1,5 +1,6 @@
 package green.ecomap.tmdb_clone_coding.language.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import green.ecomap.tmdb_clone_coding.movie.domain.MovieInfo;
 import lombok.Data;
 
@@ -22,5 +23,6 @@ public class Language {
      private String englishName;
 
      @ManyToMany(mappedBy = "spokenLanguages")
+     @JsonIgnore
      private List<MovieInfo> movieList = new ArrayList<>();
 }

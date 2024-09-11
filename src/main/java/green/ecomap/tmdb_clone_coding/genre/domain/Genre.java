@@ -1,5 +1,6 @@
 package green.ecomap.tmdb_clone_coding.genre.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import green.ecomap.tmdb_clone_coding.movie.domain.MovieInfo;
 import lombok.Data;
 
@@ -18,5 +19,6 @@ public class Genre {
     private String name;
 
     @ManyToMany(mappedBy = "genres")
+    @JsonIgnore
     private List<MovieInfo> movieList = new ArrayList<>();
 }
