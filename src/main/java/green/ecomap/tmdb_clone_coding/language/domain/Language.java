@@ -1,11 +1,11 @@
 package green.ecomap.tmdb_clone_coding.language.domain;
 
+import green.ecomap.tmdb_clone_coding.movie.domain.MovieInfo;
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Data
@@ -20,4 +20,7 @@ public class Language {
      private String name;
 
      private String englishName;
+
+     @ManyToMany(mappedBy = "spokenLanguages")
+     private List<MovieInfo> movieList = new ArrayList<>();
 }
