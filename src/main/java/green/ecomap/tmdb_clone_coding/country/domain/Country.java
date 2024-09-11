@@ -24,7 +24,7 @@ public class Country {
     @JsonIgnore
     private List<MovieInfo> originMovieList = new ArrayList<>();
 
-    @ManyToMany(mappedBy = "productionCompanies")
+    @ManyToMany(mappedBy = "productionCountries")
     @JsonIgnore
     private List<MovieInfo> productionMovieList = new ArrayList<>();
 }

@@ -1,9 +1,13 @@
 package green.ecomap.tmdb_clone_coding.company.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import green.ecomap.tmdb_clone_coding.country.domain.Country;
+import green.ecomap.tmdb_clone_coding.movie.domain.MovieInfo;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Data
@@ -21,4 +25,8 @@ public class Company {
     @OneToOne
     @JoinColumn(name = "country_id")
     private Country originalCountry;
+
+    @ManyToMany(mappedBy = "productionCompanies")
+    @JsonIgnore
+    private List<MovieInfo> productionMovieList = new ArrayList<>();
 }
