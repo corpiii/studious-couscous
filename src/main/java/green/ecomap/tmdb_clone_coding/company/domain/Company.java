@@ -1,23 +1,24 @@
 package green.ecomap.tmdb_clone_coding.company.domain;
 
+import green.ecomap.tmdb_clone_coding.country.domain.Country;
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @Data
+@Table(name = "production_company")
 public class Company {
     @Id
     @GeneratedValue
-    @Column(name = "company_id")
+    @Column(name = "production_company_id")
     private Long id;
 
     private String name;
 
     private String logoPath;
 
-    private String countryId;
+    @OneToOne
+    @JoinColumn(name = "country_id")
+    private Country originalCountry;
 }
