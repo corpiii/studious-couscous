@@ -1,11 +1,11 @@
 package green.ecomap.tmdb_clone_coding.genre.domain;
 
+import green.ecomap.tmdb_clone_coding.movie.domain.MovieInfo;
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Data
@@ -16,4 +16,7 @@ public class Genre {
     private Long id;
 
     private String name;
+
+    @ManyToMany(mappedBy = "genres")
+    private List<MovieInfo> movieList = new ArrayList<>();
 }
