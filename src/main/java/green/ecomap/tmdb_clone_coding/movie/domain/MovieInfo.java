@@ -58,7 +58,7 @@ public class MovieInfo {
 
     private String imdbId;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "collection_id")
     private MovieCollection belongsToCollection;
 
