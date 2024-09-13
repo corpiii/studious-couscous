@@ -12,6 +12,8 @@ public class SpokenLanguage {
     private String name;
 
     public static SpokenLanguage from(Language language) {
+        if (language == null) return null;
+
         return new SpokenLanguage(
             language.getEnglishName(),
             language.getIso_639_1(),

@@ -14,6 +14,8 @@ public class CompanyDTO {
     private String originCountry;
 
     public static CompanyDTO from(Company company) {
+        if (company == null) return null;
+
         Country country = company.getOriginalCountry();
         String countryCode = country.getIso_3166_1(); // ex) US, FR, KR
 

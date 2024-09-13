@@ -11,6 +11,8 @@ public class GenreDTO {
     private String name;
 
     public static GenreDTO from(Genre genre) {
+        if (genre == null) return null;
+
         return new GenreDTO(genre.getId(),genre.getName());
     }
 }

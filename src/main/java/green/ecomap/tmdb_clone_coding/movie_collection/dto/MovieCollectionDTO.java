@@ -13,6 +13,8 @@ public class MovieCollectionDTO {
     private String backdropPath;
 
     public static MovieCollectionDTO from(MovieCollection movieCollection) {
+        if (movieCollection == null) return null;
+
         return new MovieCollectionDTO(
             movieCollection.getId(),
             movieCollection.getName(),

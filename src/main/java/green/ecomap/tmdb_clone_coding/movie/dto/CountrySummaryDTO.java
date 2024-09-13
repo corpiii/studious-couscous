@@ -11,6 +11,8 @@ public class CountrySummaryDTO {
     private String name;
 
     public static CountrySummaryDTO from(Country country) {
+        if (country == null) return null;
+
         return new CountrySummaryDTO(
             country.getIso_3166_1(),
             country.getName()
