@@ -16,6 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 @RequiredArgsConstructor
 @Transactional
 public class MovieService {
+    private final int SIZE_PER_PAGE = 20;
     private final MovieRepository movieRepository;
 
     public MovieDTO findById(Long id) throws MovieException {
@@ -26,7 +27,7 @@ public class MovieService {
     }
 
     public MovieRecommendationResponseDTO findAllRecommendationById(Long id, int page) {
-        PageRequest pageRequest = PageRequest.of(page - 1, 20);
+        PageRequest pageRequest = PageRequest.of(page - 1, SIZE_PER_PAGE);
         Page<MovieRecommendationQueryDTO> movieInfoPage = movieRepository.findAllByIdOrderByGenreDescAndPopularityDesc(id, pageRequest);
         MovieRecommendationResponseDTO response = MovieRecommendationResponseDTO.from(movieInfoPage);
 
