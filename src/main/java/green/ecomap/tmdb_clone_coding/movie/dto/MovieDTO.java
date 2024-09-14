@@ -1,6 +1,5 @@
 package green.ecomap.tmdb_clone_coding.movie.dto;
 
-import com.sun.istack.Nullable;
 import green.ecomap.tmdb_clone_coding.company.dto.CompanyDTO;
 import green.ecomap.tmdb_clone_coding.country.domain.Country;
 import green.ecomap.tmdb_clone_coding.genre.dto.GenreDTO;
