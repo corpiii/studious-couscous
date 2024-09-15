@@ -25,7 +25,9 @@ public class MovieController {
     }
 
     @GetMapping("/{id}/recommendations")
-    public ResponseEntity<?> fetchRecommendationMovieById(@PathVariable("id") Long id, @RequestParam("page") int page) {
+    public ResponseEntity<?> fetchRecommendationMovieById(
+            @PathVariable("id") Long id,
+            @RequestParam(value = "page", required = false, defaultValue = "1") int page) {
         return ResponseEntity.ok(movieService.findAllRecommendationById(id, page));
     }
 }
