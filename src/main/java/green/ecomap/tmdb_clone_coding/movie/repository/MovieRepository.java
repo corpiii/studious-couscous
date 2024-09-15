@@ -8,7 +8,20 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import java.util.Optional;
+
 public interface MovieRepository extends JpaRepository<MovieInfo, Long> {
+    @Query("select m " +
+            "from MovieInfo m " +
+            "join fetch m.genres g " +
+            "join fetch m.belongsToCollection collection " +
+            "join fetch m.spokenLanguages sl " +
+            "join fetch m.originCountry oc " +
+            "join fetch m.productionCountries countries " +
+            "join fetch m.productionCompanies companies " +
+            "where m.id = :id")
+    Optional<MovieInfo> findById(@Param("id") Long id);
+
     @Query("select new green.ecomap.tmdb_clone_coding.movie.dto.MovieRecommendationQueryDTO(m, count(g)) " +
             "from MovieInfo m " +
             "join m.genres g " +

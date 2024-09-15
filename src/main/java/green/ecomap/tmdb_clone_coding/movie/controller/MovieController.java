@@ -1,10 +1,8 @@
 package green.ecomap.tmdb_clone_coding.movie.controller;
 
-import green.ecomap.tmdb_clone_coding.movie.domain.MovieInfo;
 import green.ecomap.tmdb_clone_coding.movie.dto.MovieDTO;
 import green.ecomap.tmdb_clone_coding.movie.service.MovieService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
