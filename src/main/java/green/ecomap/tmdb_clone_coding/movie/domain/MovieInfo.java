@@ -10,8 +10,8 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Data
@@ -72,7 +72,7 @@ public class MovieInfo {
         joinColumns = @JoinColumn(name = "movie_id"),
         inverseJoinColumns = @JoinColumn(name = "genre_id")
     )
-    private List<Genre> genres = new ArrayList<>();
+    private Set<Genre> genres = new HashSet<>();
 
     @ManyToMany
     @JoinTable(
@@ -80,7 +80,7 @@ public class MovieInfo {
         joinColumns = @JoinColumn(name = "movie_id"),
         inverseJoinColumns = @JoinColumn(name = "language_id")
     )
-    private List<Language> spokenLanguages = new ArrayList<>();
+    private Set<Language> spokenLanguages = new HashSet<>();
 
     @ManyToMany
     @JoinTable(
@@ -88,7 +88,7 @@ public class MovieInfo {
         joinColumns = @JoinColumn(name = "movie_id"),
         inverseJoinColumns = @JoinColumn(name = "country_id")
     )
-    private List<Country> originCountry = new ArrayList<>();
+    private Set<Country> originCountry = new HashSet<>();
 
     @ManyToMany
     @JoinTable(
@@ -96,7 +96,7 @@ public class MovieInfo {
         joinColumns = @JoinColumn(name = "movie_id"),
         inverseJoinColumns = @JoinColumn(name = "country_id")
     )
-    private List<Country> productionCountries = new ArrayList<>();
+    private Set<Country> productionCountries = new HashSet<>();
 
     @ManyToMany
     @JoinTable(
@@ -104,5 +104,5 @@ public class MovieInfo {
             joinColumns = @JoinColumn(name = "movie_id"),
             inverseJoinColumns = @JoinColumn(name = "production_company_id")
     )
-    private List<Company> productionCompanies = new ArrayList<>();
+    private Set<Company> productionCompanies = new HashSet<>();
 }
